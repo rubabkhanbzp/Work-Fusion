@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+    <%- include('header') %>
+    <main class="container mt-4">
+        <h2>Projects</h2>
+        <a href="/create" class="btn btn-primary mb-3">Create New Project</a>
+        <% if (projects.length > 0) { %>
+            <div class="list-group">
+                <% projects.forEach(project => { %>
+                    <a href="/projects/<%= project._id %>" class="list-group-item list-group-item-action">
+                        <h5 class="mb-1"><%= project.name %></h5>
+                        <p class="mb-1"><%= project.description %></p>
+                    </a>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p>No projects found.</p>
+        <% } %>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
